@@ -37,12 +37,12 @@ app.post('/createWallet', async function (req, res) {
   res.send(wallet)
 })
 
-app.get('/api/getBalance/:address', async function (req, res) {
+app.get('/api/balance/:address', async function (req, res) {
   var address = req.params.address;
   const libra = new Libra()
   let wallet = await libra.getBalance(address)
   console.log('wallet', wallet)
-  res.send(wallet)
+  res.send(wallet.balance)
 })
 
 
